@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+  x:Class="FullPageSnapCollection.MainPage"
+  xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+  xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+  xmlns:fullPageSnapCollection="clr-namespace:FullPageSnapCollection"
+  x:DataType="fullPageSnapCollection:MainViewModel">
+
+  <Grid>
+
+    <CollectionView
+      HeightRequest="500"
+      HorizontalOptions="Fill"
+      VerticalOptions="Center"
+      ItemsSource="{Binding Items}">
+      <CollectionView.ItemsLayout>
+        <LinearItemsLayout
+          Orientation="Vertical"
+          SnapPointsType="MandatorySingle"
+          SnapPointsAlignment="Start" />
+      </CollectionView.ItemsLayout>
+      <CollectionView.ItemTemplate>
+        <DataTemplate x:DataType="fullPageSnapCollection:MyModel">
+          <Grid
+            HeightRequest="500"
+            BackgroundColor="{Binding BackgroundColor}"
+            HorizontalOptions="Fill">
+            <Label
+              Text="{Binding Name}"
+              VerticalOptions="Center"
+              HorizontalOptions="Center"
+              FontSize="Title" />
+          </Grid>
+        </DataTemplate>
+      </CollectionView.ItemTemplate>
+    </CollectionView>
+
+  </Grid>
+
+</ContentPage>
