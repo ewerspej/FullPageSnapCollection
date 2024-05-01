@@ -12,7 +12,8 @@
       HeightRequest="500"
       HorizontalOptions="Fill"
       VerticalOptions="Center"
-      ItemsSource="{Binding Items}">
+      ItemsSource="{Binding Items}"
+      Scrolled="ItemsView_OnScrolled">
       <CollectionView.ItemsLayout>
         <LinearItemsLayout
           Orientation="Vertical"
@@ -25,6 +26,13 @@
             HeightRequest="500"
             BackgroundColor="{Binding BackgroundColor}"
             HorizontalOptions="Fill">
+            <fullPageSnapCollection:ExtendedMediaElement
+              Aspect="Fill"
+              Source="{Binding VideoUri}"
+              ShouldAutoPlay="False"
+              ShouldLoopPlayback="True"
+              ShouldShowPlaybackControls="False"
+              IsPlaying="{Binding IsPlaying}" />
             <Label
               Text="{Binding Name}"
               VerticalOptions="Center"
